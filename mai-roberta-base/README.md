@@ -163,6 +163,17 @@ Fine-tuned with 5 epochs, batch size 8, learning rate 2e-5.
 | **Accuracy** | | | **87.89%** | 6,680 |
 | **Macro Avg** | **70.34%** | **62.29%** | **65.63%** | 6,680 |
 
+#### Comparison with Other Models on ViHSD
+
+| Model | F1 (macro) | Note |
+|-------|------------|------|
+| ViHateT5 | 75.56% | SOTA, T5-based |
+| ViSoBERT | 75.07% | Social media pre-training |
+| XLM-RoBERTa | 72.65% | Multilingual large |
+| PhoBERT_v2 | 70.50% | Vietnamese BERT v2 |
+| PhoBERT | 69.63% | Vietnamese BERT |
+| **viBERT-base (ours)** | **65.63%** | CC-100 + custom corpus |
+
 ## Limitations
 
 - Primarily trained on Vietnamese text; performance may vary for code-mixed text
