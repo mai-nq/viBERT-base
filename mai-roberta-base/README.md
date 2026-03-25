@@ -34,6 +34,19 @@ model-index:
     - type: accuracy
       value: 71.06
       name: Accuracy
+  - task:
+      type: text-classification
+      name: Hate Speech Detection
+    dataset:
+      name: ViHSD
+      type: visolex/ViHSD
+    metrics:
+    - type: accuracy
+      value: 87.89
+      name: Accuracy
+    - type: f1
+      value: 65.63
+      name: F1 (macro)
 ---
 
 # viBERT-base
@@ -109,6 +122,7 @@ tokenizer = AutoTokenizer.from_pretrained("mainguyen9/viBERT-base")
 |------|---------|--------|-------|
 | NER | PhoNER_COVID19 | F1 | **89.38** |
 | NLI | XNLI Vietnamese | Accuracy | **71.06** |
+| Hate Speech | ViHSD | Accuracy | **87.89** |
 
 ### NER Performance Details (PhoNER_COVID19)
 
@@ -136,6 +150,18 @@ Fine-tuned with 5 epochs, batch size 64, learning rate 2e-5.
 |--------|-------|
 | Accuracy | **71.06%** |
 | F1 (macro) | **71.02%** |
+
+### Hate Speech Detection (ViHSD)
+
+Fine-tuned with 5 epochs, batch size 8, learning rate 2e-5.
+
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| CLEAN | 91.84% | 96.40% | 94.06% | 5,548 |
+| OFFENSIVE | 51.86% | 40.77% | 45.65% | 444 |
+| HATE | 67.32% | 49.71% | 57.19% | 688 |
+| **Accuracy** | | | **87.89%** | 6,680 |
+| **Macro Avg** | **70.34%** | **62.29%** | **65.63%** | 6,680 |
 
 ## Limitations
 
